@@ -221,6 +221,10 @@ small, .small{
     background:#CFC;
 }
 
+body{
+	margin:20px 25%;
+}
+
 section ul{
     list-style:none;
     padding:0;
@@ -260,6 +264,7 @@ section li:focus{
     display:block;
     text-align:center;
     clear:both;
+	padding-top:30px;
 }
 
 #menu3 span{
