@@ -28,7 +28,7 @@ var Menuify = new Class({
 		this.setOptions(options);
 		this.items = $$(selector);
 		this.addTabIndexes();
-		this.addEvents();
+		this.attach();
 		return this;
 	},
 
@@ -54,7 +54,7 @@ var Menuify = new Class({
 	},
 
 	// bind the necessary events
-	'addEvents': function(){
+	'attach': function(){
 		this.items.each(function(item){
 			item.addEvents({
 				'keypress': function(event){
