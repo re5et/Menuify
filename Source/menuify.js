@@ -2,7 +2,7 @@
 ---
 script: menuify.js
 
-description: Class to create keyboard navigable menus using tabindex, focus, and a few events.
+description: Class to create keyboard navigable menus from a group of elements using tabindex, focus, and a few events.
 
 license: MIT-style
 

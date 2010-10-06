@@ -10,15 +10,15 @@ How to use
 
 You can use Menuify to create a menu by doing the following:
 
-    var myMenu = new Menuify('#my-list li a');
+	var myMenu = new Menuify($$('#my-list li a'));
 
 You can add events easily like so:
 
 	myMenu.addEvents({
-		'focus': function(menuItem){
-			menuItem.set('text', menuItem.get('text').hexToRgb());
+		'focus': function(event, item){
+			console.log(item + ' focused');
 		},
-		'blur': function(menuItem){
-			menuItem.set('text', menuItem.get('text').rgbToHex());
+		'blur': function(event, item){
+			console.log(item + ' blurred');
 		}
 	});
