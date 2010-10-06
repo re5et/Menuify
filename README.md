@@ -15,10 +15,10 @@ You can use Menuify to create a menu by doing the following:
 You can add events easily like so:
 
 	myMenu.addEvents({
-		'focus': function(event, item){
+		'focus': function(item){
 			console.log(item + ' focused');
 		},
-		'blur': function(event, item){
+		'blur': function(item){
 			console.log(item + ' blurred');
 		}
 	});

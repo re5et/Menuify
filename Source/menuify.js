@@ -72,9 +72,9 @@ var Menuify = new Class({
 			});
 
 			['keydown', 'keyup', 'keypress', 'click', 'doubleclick',
-			 'focus', 'blur', 'mouseenter', 'mouseleave'].each(function(event){
-				 item.addEvent(event, function(){
-					 this.fireEvent(event, [item, this.items])
+			 'focus', 'blur', 'mouseenter', 'mouseleave'].each(function(eventType){
+				 item.addEvent(eventType, function(event){
+					 this.fireEvent(eventType, [item, event])
 				 }.bind(this))
 			 }, this);
 		}, this);
