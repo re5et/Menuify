@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<title>Menuify demo</title>
+	<script src="assets/js/mootools.js"></script>
+	<script src="assets/js/menuify.js"></script>
+	<script type="text/javascript">
+	    window.addEvent('domready', function(){
+	    new Menuify('#menu1 li').items[0].focus();
+	    new Menuify('#menu2 li').addEvent('focus', function(item){
+	    item.highlight('#FF0', '#FFF');
+	    });
+	    new Menuify('#menu3 span');
+	    });
+	</script>
+	<link rel="stylesheet" href="assets/css/menuify.css" type="text/css" media="screen" />
+    </head>
+    <body>
+	<section id="menu1">
+	    <h1>Menu 1</h1>
+	    <ul>
+		<li><span class="title">This is done using the magic of tabindex and focus!</span></li>
+		<li><span class="title">You can tab through these menus as expected.</span></li>
+		<li><span class="title">You can also use your up and down arrow keys to navigate through them.</span></li>
+		<li><span class="title">While doing this if you hit the top or bottom of the menu, you will be looped around to the respective bottom or top of the menu.</span></li>
+		<li><span class="title">You can also use your left and right arrow keys to jump out of the menu to the next highest tabindex.</span></li>
+		<li><span class="title">This is very useful for quickly moving back and forth from menus.</span></li>
+		<li>Because this is all done with tabindex (to make items focusable), you can use the css pseudoselector :focus to style elements.</li>
+	    </ul>
+	</section>
+	<section id="menu2">
+	    <h1>Menu 2</h1>
+	    <ul>
+		<li><span class="title">This is the second menu created.</span></li>
+		<li><span class="title">This one used the class's focus event so that each item is highlighted when focused.</span></li>
+		<li><span class="title">This was done like so: <br/><code>new Menuify('#menu2 li').addEvent('focus', function(item){ item.highlight('#FF0', '#FFF'); })</code></span></li>
+		<li><span class="title">The event is passed on to each of the items in the menu.</span></li>
+		<li><span class="title">You can use the following events with Menuify('selector').addEvent: <br/><br/>keydown, keyup, keypress, click, doubleclick, focus, blur, mouseenter, mouseleave</span></li>
+	    </ul>
+	</section>
+	<section id="menu3">
+	    <span>This</span>
+	    <span>is</span>
+	    <span>a</span>
+	    <span>demo</span>
+	    <span>of</span>
+	    <span><a href="#">Menuify</a></span>,
+	    <span>and</span>
+	    <span>this</span>
+	    <span>too</span>
+	    <span>is</span>
+	    <span>a</span>
+	    <span>menu</span>.
+	</section>
+    </body>
+</html>
