@@ -21,6 +21,8 @@ var Menuify = new Class({
 	'Implements': [Options, Events],
 
 	'options': {
+		'addArrowKeyEvents': true,
+		'stopArrowKeyDefaults': true
 	},
 
 	// set options, select items for menu, add reasonable tabindexes and events.
@@ -56,20 +58,28 @@ var Menuify = new Class({
 	// bind the necessary events
 	'attach': function(){
 		this.items.each(function(item){
-			item.addEvents({
-				'keypress': function(event){
-					event = new Event(event);
-					if(event.key == 'up' || event.key == 'down'){
-						this.nextInMenu(event.key);
-					}
-					if(event.key == 'left' || event.key == 'right'){
-						this.nextNonMenuIndex(event.key)
-					}
-				}.bind(this),
-				'focus': function(){
-					this.focused = item;
-				}.bind(this)
-			});
+			if(this.options.addArrowKeyEvents){
+				item.addEvents({
+					'keypress': function(event){
+						event = new Event(event);
+						if(event.key == 'up' || event.key == 'down'){
+							if(this.options.stopArrowKeyDefaults){
+								event.stop();
+							}
+							this.nextInMenu(event.key);
+						}
+						if(event.key == 'left' || event.key == 'right'){
+							if(this.options.stopArrowKeyDefaults){
+								event.stop();
+							}
+							this.nextNonMenuIndex(event.key)
+						}
+					}.bind(this),
+					'focus': function(){
+						this.focused = item;
+					}.bind(this)
+				});
+			}
 
 			['keydown', 'keyup', 'keypress', 'click', 'doubleclick',
 			 'focus', 'blur', 'mouseenter', 'mouseleave'].each(function(eventType){
